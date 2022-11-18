@@ -1,0 +1,39 @@
+.LandingPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url("../../img/landing.jpg");
+  background-color: black;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: cover;
+  width: 100vw;
+  height: 100vh;
+  background-attachment: fixed;
+  overflow: auto;
+}
+
+.landingH1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  color: rgb(251, 250, 247);
+  font-size: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-shadow: 3.5px 3.2px 3px #1a193ddd;
+}
+.homeButton {
+  align-self: center;
+  margin-bottom: 15%;
+  color: rgb(248, 240, 240);
+  text-shadow: 3.5px 3.2px 3px #1a193ddd;
+  font-size: 45px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bolder;
+  padding: 0.6rem 0.8rem;
+  border-radius: 50px;
+  background: rgb(199, 125, 200);
+  box-shadow: 1 1 5px #353a3a;
+  width: 150px;
+  height: 80px;
+}

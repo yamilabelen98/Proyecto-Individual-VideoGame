@@ -1,0 +1,19 @@
+.homeImage{
+    flex-direction: column-reverse;
+    background-image: url("../../img/home.png");
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    background-attachment: fixed;
+    overflow:auto;
+    margin: 0%;
+  }
+  
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    margin-top: 1%;
+    width: 100%;  
+  }
