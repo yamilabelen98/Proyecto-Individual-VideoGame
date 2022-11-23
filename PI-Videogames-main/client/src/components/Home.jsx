@@ -7,13 +7,13 @@ import {
   order,
   rating,
 } from "../redux/Actions";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Card from "./Card";
 import Loading from "./Loading";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
 import styles from "./Styles/Home.module.css";
-
+import NotFound from "./NotFound";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -25,7 +25,8 @@ export default function Home() {
   const indexOfLastGame = currentPage * gamesPerPage;
   const indexOfFirstGame = indexOfLastGame - gamesPerPage;
   const currentGames = allVideogames?.slice(indexOfFirstGame, indexOfLastGame);
-  console.log(currentGames);
+  const history = useHistory();
+
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -51,16 +52,13 @@ export default function Home() {
     dispatch(getAllVideoGames());
   }
 
+  console.log(currentGames, "los current games");
   function handleGames() {
-    if (
-      currentGames?.length > 0 &&
-      currentGames[0] === "Games name not found"
-    ) {
-      return "Games name not found"
-    } else if (!currentGames?.length > 0 && loadingGame) {
+    if (!currentGames?.length > 0 && loadingGame) {
       return <Loading />;
     } else if (currentGames?.length > 0 && !loadingGame) {
       return currentGames?.map((e) => {
+        console.log(e, " lo que llega al Home");
         return (
           <div key={e.id} className={styles.cards}>
             <Link to={"/detail/" + e.id}>
@@ -71,47 +69,60 @@ export default function Home() {
       });
     }
   }
-  
+
+  const handleCreated = () => {
+    history.push("/CreateVideoGame");
+  };
+
   return (
     <div className={styles.homeImage}>
-      <Link to="/CreateVideoGame">Crear VideoGame</Link>
-      <h1>VideoGames</h1>
+      <button className={styles.created} onClick={handleCreated}>
+        Created The VideoGame
+      </button>
+      <div className={styles.titulo}>
+        <p>VideoGames</p>
+      </div>
+
       <button
+        className={styles.reload}
         onClick={(e) => {
           handleClick(e);
         }}
       >
         Reload All VideoGame
       </button>
-      <SearchBar setCurrentPage={setCurrentPage} />
-      <div>
-        <select
-          defaultValue="default"
-          onChange={(event) => handleFilter(event)}
-        >
-          <option value="default" disabled>
-            Order Alphabetical
-          </option>
-          <option value="asc">A - Z</option>
-          <option value="desc">Z - A</option>
-        </select>
-        <select
-          defaultValue="default"
-          onChange={(event) => handleFilterRating(event)}
-        >
-          <option value="default" disabled>
-            Order Rating
-          </option>
-          <option value="Rating+">Rating+</option>
-          <option value="Rating-">Rating-</option>
-        </select>
-        <select onChange={(e) => handleFilterCreated(e)}>
-          <option value="All">All</option>
-          <option value="created">Created</option>
-          <option value="api">Existing</option>
-        </select>
+      <div className={styles.cosas}>
+        <SearchBar setCurrentPage={setCurrentPage} />
+        <div className={styles.order}>
+          <select
+            className={styles.item}
+            defaultValue="default"
+            onChange={(event) => handleFilter(event)}
+          >
+            <option value="default" disabled>
+              Order Alphabetical
+            </option>
+            <option value="asc">A - Z</option>
+            <option value="desc">Z - A</option>
+          </select>
+          <select
+            className={styles.item}
+            defaultValue="default"
+            onChange={(event) => handleFilterRating(event)}
+          >
+            <option value="default" disabled>
+              Order Rating
+            </option>
+            <option value="Rating+">Rating+</option>
+            <option value="Rating-">Rating-</option>
+          </select>
+          <select className={styles.item} hange={(e) => handleFilterCreated(e)}>
+            <option value="All">All</option>
+            <option value="created">Created</option>
+            <option value="api">Existing</option>
+          </select>
+        </div>
       </div>
-
       <Paginado
         gamesPerPage={gamesPerPage}
         allVideogames={allVideogames?.length}

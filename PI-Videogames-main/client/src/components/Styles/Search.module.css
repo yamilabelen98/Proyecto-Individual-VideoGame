@@ -1,0 +1,26 @@
+.search {
+  cursor: pointer;
+  display: flex;
+  width: 20%;
+  font-weight: bolder;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  background: rgb(204, 18, 163);
+  box-shadow: 0 0 4px #000000;
+}
+
+.input {
+  display: flex;
+  width: 70%;
+  background: rgb(252, 166, 248);
+}
+.button {
+  display: flex;
+  width: 30%;
+  cursor: pointer;
+  background: rgb(252, 166, 248);
+}
+.button:hover {
+  color: rgb(176, 85, 212);
+  box-shadow: 0 0 4px #080101a8;
+}

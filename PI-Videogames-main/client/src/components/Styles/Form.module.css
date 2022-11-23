@@ -1,0 +1,140 @@
+.imageForm {
+  background-image: url("../../img/form.jpg");
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: cover;
+  width: 100vw;
+  height: 100vh;
+  background-attachment: fixed;
+  overflow: auto;
+  margin: 0%;
+}
+
+.realForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-self: inherit;
+  width: 700px;
+  padding: 0.8rem;
+  height: fit-content;
+  background: rgba(75, 50, 70, 0.955);
+  border-radius: 20px;
+  border: solid rgb(10, 10, 10) 2px;
+  border-width: 4px;
+  box-shadow: 0 0 4px #080101a8;
+  transition: all 400ms ease-in-out;
+  gap: 2px;
+}
+.title {
+  color: #e7e7e7;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-align: center;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 600;
+  gap: 0;
+  color: #ffffffd5;
+  padding: 5px;
+  margin-top: 0;
+}
+.divs {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: smaller;
+  font-weight: bolder;
+  padding: 0.6rem 0.8rem;
+  border-radius: 4px;
+  background: rgb(241, 61, 97);
+  box-shadow: 0 0 4px #353a3a;
+  color: rgba(19, 19, 19, 0.838);
+}
+
+.textArea {
+  display: flex;
+  margin-top: 4px;
+  resize: none;
+}
+
+.create {
+  align-self: center;
+  cursor: pointer;
+  margin: 10px 10px 0px 0px;
+  font-size: smaller;
+  font-weight: bolder;
+  padding: 0.6rem 0.8rem;
+  margin-left: 4px;
+  border-radius: 4px;
+  background: rgb(241, 61, 97);
+  box-shadow: 0 0 4px #353a3a;
+  color: rgb(19, 19, 19);
+  width: fit-content;
+}
+.create:hover {
+  color: pink;
+}
+.platforms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  transition: 0.3s ease-in-out;
+}
+.platforms button {
+  width: 24x;
+  align-self: center;
+}
+.platforms button:hover {
+  color: red;
+  transition: 0.1s ease-in-out;
+}
+.genres {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  transition: 0.3s ease-in-out;
+}
+.genres button {
+  width: 24x;
+  align-self: center;
+}
+.genres button:hover {
+  color: red;
+  transition: 0.1s ease-in-out;
+}
+.returnButton {
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-top: 20px;
+  font-size: smaller;
+  font-weight: bolder;
+  padding: 0.6rem 0.8rem;
+  margin-left: 20px;
+  border-radius: 4px;
+  background: rgb(241, 61, 97);
+  box-shadow: 0 0 4px #353a3a;
+  color: rgb(19, 19, 19);
+  width: fit-content;
+}
+.returnButton:hover {
+  color: pink;
+}
+.map {
+  display: flex;
+  margin: 0;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.hs {
+  margin: 2px;
+  color: pink;
+}

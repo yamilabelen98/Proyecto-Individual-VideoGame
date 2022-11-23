@@ -1,0 +1,27 @@
+.elbody {
+  background-color: rgb(5, 2, 5);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Back {
+  cursor: pointer;
+  align-self: center;
+  width: 100px;
+  height: 40px;
+  margin: 10px 10px 0px 0px;
+  font-size: 12px;
+  font-weight: bolder;
+  padding: 0.6rem 0.8rem;
+  margin-left: 4px;
+  border-radius: 4px;
+  background: rgb(241, 61, 97);
+  box-shadow: 0 0 4px #353a3a;
+  color: rgb(19, 19, 19);
+  width: fit-content;
+}
+.Back:hover {
+  color: pink;
+}

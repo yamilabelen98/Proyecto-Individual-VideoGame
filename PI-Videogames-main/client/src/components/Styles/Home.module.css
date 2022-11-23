@@ -1,19 +1,97 @@
-.homeImage{
-    flex-direction: column-reverse;
-    background-image: url("../../img/home.png");
-    background-size:cover;
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
-    background-attachment: fixed;
-    overflow:auto;
-    margin: 0%;
-  }
-  
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:center;
-    margin-top: 1%;
-    width: 100%;  
-  }
+.homeImage {
+  box-sizing: border-box;
+  flex-direction: column-reverse;
+  background-image: url("../../img/home.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  background-attachment: fixed;
+  overflow: auto;
+  margin: 0%;
+}
+
+.created {
+  cursor: pointer;
+  display: flex;
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  font-weight: bolder;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  background: rgb(204, 18, 163);
+  box-shadow: 0 0 4px #000000;
+}
+.created:hover {
+  color: pink;
+}
+
+.cards {
+  display: inline-grid;
+  grid-template-columns: repeat(2, 200px);
+}
+
+.titulo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: start;
+  text-decoration: none;
+  background: transparent;
+  margin: 0;
+}
+
+.titulo p {
+  color: rgb(204, 18, 163);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 600;
+  margin: 0;
+  width: fit-content;
+  align-self: center;
+  text-shadow: 1px 2px rgb(0, 0, 0);
+  font-size: 70px;
+}
+
+.cosas {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  flex-direction: column;
+}
+.reload {
+  cursor: pointer;
+  display: flex;
+  position: absolute;
+  top: 3%;
+  left: 1%;
+  font-weight: bolder;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  background: rgb(204, 18, 163);
+  box-shadow: 0 0 4px #000000;
+}
+
+.order {
+  cursor: pointer;
+  display: flex;
+  width: 40%;
+  align-self: center;
+  font-weight: bolder;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  background: rgb(204, 18, 163);
+  box-shadow: 0 0 4px #000000;
+}
+
+.item {
+  display: flex;
+  width: 35%;
+  cursor: pointer;
+  background: rgb(252, 166, 248);
+}
+.item:hover {
+  color: rgb(176, 85, 212);
+  box-shadow: 0 0 4px #080101a8;
+}

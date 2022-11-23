@@ -1,0 +1,60 @@
+.imageDetail {
+  background-image: url("../../img/card.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: cover;
+  width: 100vw;
+  height: 100vh;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  margin: 0%;
+  align-items: center;
+}
+.DetailDiv {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-direction: row;
+  padding: 2rem;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background: rgba(19, 19, 19, 0.899);
+  border-radius: 17px;
+  border: solid rgb(150, 18, 53) 1px;
+  box-shadow: 1 1 5px #000000a8;
+  width: 90%;
+  height: fit-content;
+}
+
+.divTexto {
+  display: inline-block;
+  text-align: left;
+  color: rgb(248, 241, 241);
+}
+.imagen {
+  width: 360px;
+  height: 380px;
+}
+.Back {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  align-self: center;
+  width: 100px;
+  height: 40px;
+  margin: 10px 10px 0px 0px;
+  font-size: 12px;
+  font-weight: bolder;
+  padding: 0.6rem 0.8rem;
+  margin-left: 4px;
+  border-radius: 4px;
+  background: rgb(241, 61, 97);
+  box-shadow: 0 0 4px #353a3a;
+  color: rgb(19, 19, 19);
+  width: fit-content;
+}
+.Back:hover {
+  color: pink;
+}

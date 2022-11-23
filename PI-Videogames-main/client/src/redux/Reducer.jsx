@@ -11,7 +11,7 @@ function rootReducer(state = initialState, action) {
   switch (action.type) {
     case "GET_ALL_VIDEOGAMES":
       let platforms = [];
-      action.payload?.map((e) => (platforms = [...platforms, ...e.platforms]));
+      action?.payload?.map((e) => (platforms = [...platforms, ...e.platforms]));
       return {
         ...state,
         loading: false,

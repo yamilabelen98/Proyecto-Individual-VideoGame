@@ -1,4 +1,5 @@
 import axios from "axios";
+import NotFound from "../components/NotFound";
 
 export function getAllVideoGames() {
   return async function (dispatch) {
@@ -20,7 +21,7 @@ export function getAllGenres() {
   };
 }
 
-export function searchVideogame(name) {
+export function searchVideogame(name, history) {
   return async function (dispatch) {
     try {
       var json = await axios.get(
@@ -31,12 +32,12 @@ export function searchVideogame(name) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
+      if (error) history.push("/notfound");
     }
   };
 }
 
-export function detailVideogame(id) {
+export function detailVideogame(id, history) {
   return async function (dispatch) {
     try {
       var json = await axios.get(`http://localhost:3001/videogames/${id}`);
@@ -46,57 +47,61 @@ export function detailVideogame(id) {
       });
     } catch (error) {
       console.log(error);
+      history.push("/notfound");
     }
   };
 }
 
-export function cleanDetailState(){
-    return{
-        type: "CLEAN_DETAIL_STATE",
-        payload:[]
-    }
+export function cleanDetailState() {
+  return {
+    type: "CLEAN_DETAIL_STATE",
+    payload: [],
+  };
 }
 
-export function filterByGenre(payload){
-    return{
-        type: "FILTER_GENRE",
-        payload
-    }
+export function filterByGenre(payload) {
+  return {
+    type: "FILTER_GENRE",
+    payload,
+  };
 }
 
-export function filterCreated(payload){
-    return {
-        type: "FILTER_CREATED",
-        payload
-    }
+export function filterCreated(payload) {
+  return {
+    type: "FILTER_CREATED",
+    payload,
+  };
 }
 
-export function order(payload){
-    return{
-        type: "ORDER",
-        payload
-    }
+export function order(payload) {
+  return {
+    type: "ORDER",
+    payload,
+  };
 }
 
-export function rating(payload){
-  return{
-      type: "RATING",
+export function rating(payload) {
+  return {
+    type: "RATING",
+    payload,
+  };
+}
+
+export function postVideogame(payload) {
+  return async function () {
+    var response = await axios.post(
+      "http://localhost:3001/videogames",
       payload
-  }
-}
-
-export function postVideogame (payload){
-    return async function(){
-        var response= await axios.post("http://localhost:3001/videogames", payload);
-        return {
-            type: "POST_VIDEOGAME",
-            payload: response
-        }
-    }
+    );
+    return {
+      type: "POST_VIDEOGAME",
+      payload: response,
+    };
+  };
 }
 
 export function loading() {
   return {
-      type: "LOADING"
-  }
+    type: "LOADING",
+  };
 }
