@@ -72,6 +72,9 @@
   background: rgb(204, 18, 163);
   box-shadow: 0 0 4px #000000;
 }
+.reload:hover {
+  color: pink;
+}
 
 .order {
   cursor: pointer;

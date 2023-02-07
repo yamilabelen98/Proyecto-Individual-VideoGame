@@ -116,7 +116,10 @@ export default function Home() {
             <option value="Rating+">Rating+</option>
             <option value="Rating-">Rating-</option>
           </select>
-          <select className={styles.item} hange={(e) => handleFilterCreated(e)}>
+          <select
+            className={styles.item}
+            onChange={(e) => handleFilterCreated(e)}
+          >
             <option value="All">All</option>
             <option value="created">Created</option>
             <option value="api">Existing</option>
