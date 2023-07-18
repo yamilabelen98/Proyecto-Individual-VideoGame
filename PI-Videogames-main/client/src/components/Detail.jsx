@@ -14,7 +14,7 @@ export default function Detail() {
   console.log(detailVideogames);
   useEffect(() => {
     dispatch(detailVideogame(id, history));
-  }, [dispatch, id]);
+  }, [dispatch, id, history]);
 
   function handleRefresh(event) {
     event.preventDefault();

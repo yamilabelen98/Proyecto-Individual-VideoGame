@@ -31,6 +31,10 @@ export default function FormularioCreate() {
     dispatch(getAllGenres());
   }, [dispatch]);
 
+  useEffect(() => {
+    setErrors(validate(inputCreate, allVideogames));
+  }, [inputCreate]);
+
   function handleCreate(event) {
     event.preventDefault();
     setErrors(validate(inputCreate, allVideogames));
@@ -58,15 +62,15 @@ export default function FormularioCreate() {
       ...inputCreate,
       [event.target.name]: event.target.value,
     });
-    setErrors(
-      validate(
-        {
-          ...inputCreate,
-          [event.target.name]: event.target.value,
-        },
-        allVideogames
-      )
-    );
+    // setErrors(
+    //   validate(
+    //     {
+    //       ...inputCreate,
+    //       [event.target.name]: event.target.value,
+    //     },
+    //     allVideogames
+    //   )
+    // );
   }
 
   function handleGenres(event) {
@@ -74,15 +78,15 @@ export default function FormularioCreate() {
       ...inputCreate,
       genres: [...new Set([...inputCreate.genres, event.target.value])],
     });
-    setErrors(
-      validate(
-        {
-          ...inputCreate,
-          [event.target.name]: event.target.value,
-        },
-        allVideogames
-      )
-    );
+    // setErrors(
+    //   validate(
+    //     {
+    //       ...inputCreate,
+    //       [event.target.name]: event.target.value,
+    //     },
+    //     allVideogames
+    //   )
+    // );
   }
 
   function handlePlatforms(event) {
@@ -90,15 +94,15 @@ export default function FormularioCreate() {
       ...inputCreate,
       platforms: [...new Set([...inputCreate.platforms, event.target.value])],
     });
-    setErrors(
-      validate(
-        {
-          ...inputCreate,
-          [event.target.name]: event.target.value,
-        },
-        allVideogames
-      )
-    );
+    // setErrors(
+    //   validate(
+    //     {
+    //       ...inputCreate,
+    //       [event.target.name]: event.target.value,
+    //     },
+    //     allVideogames
+    //   )
+    // );
   }
 
   const handleDeleteGenres = (event) => {

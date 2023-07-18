@@ -72,11 +72,14 @@
   background: rgb(204, 18, 163);
   box-shadow: 0 0 4px #000000;
 }
+.reload:hover {
+  color: pink;
+}
 
 .order {
   cursor: pointer;
   display: flex;
-  width: 40%;
+  width: 45%;
   align-self: center;
   font-weight: bolder;
   padding: 0.6rem 0.8rem;
@@ -94,4 +97,11 @@
 .item:hover {
   color: rgb(176, 85, 212);
   box-shadow: 0 0 4px #080101a8;
+}
+
+.button {
+  display: flex;
+  width: 30%;
+  cursor: pointer;
+  background: rgb(252, 166, 248);
 }

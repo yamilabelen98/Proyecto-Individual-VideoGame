@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  filterByGenre,
   filterCreated,
+  getAllGenres,
   getAllVideoGames,
   order,
   rating,
@@ -13,12 +15,12 @@ import Loading from "./Loading";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
 import styles from "./Styles/Home.module.css";
-import NotFound from "./NotFound";
 
 export default function Home() {
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.videogames);
   const loadingGame = useSelector((state) => state.loading);
+  const allGenres = useSelector((state) => state.genres);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPerPage, setGamesPerPage] = useState(15);
@@ -33,6 +35,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getAllVideoGames());
+    dispatch(getAllGenres());
   }, [dispatch]);
 
   function handleFilter(event) {
@@ -47,18 +50,20 @@ export default function Home() {
     event.preventDefault();
     dispatch(filterCreated(event.target.value));
   }
+  function handleFilterGenre(event) {
+    event.preventDefault();
+    dispatch(filterByGenre(event.target.value));
+  }
   function handleClick(event) {
     event.preventDefault();
     dispatch(getAllVideoGames());
   }
 
-  console.log(currentGames, "los current games");
   function handleGames() {
     if (!currentGames?.length > 0 && loadingGame) {
       return <Loading />;
     } else if (currentGames?.length > 0 && !loadingGame) {
       return currentGames?.map((e) => {
-        console.log(e, " lo que llega al Home");
         return (
           <div key={e.id} className={styles.cards}>
             <Link to={"/detail/" + e.id}>
@@ -77,7 +82,7 @@ export default function Home() {
   return (
     <div className={styles.homeImage}>
       <button className={styles.created} onClick={handleCreated}>
-        Created The VideoGame
+        Create Your VideoGame
       </button>
       <div className={styles.titulo}>
         <p>VideoGames</p>
@@ -89,7 +94,7 @@ export default function Home() {
           handleClick(e);
         }}
       >
-        Reload All VideoGame
+        Reload All VideoGames
       </button>
       <div className={styles.cosas}>
         <SearchBar setCurrentPage={setCurrentPage} />
@@ -116,10 +121,22 @@ export default function Home() {
             <option value="Rating+">Rating+</option>
             <option value="Rating-">Rating-</option>
           </select>
-          <select className={styles.item} hange={(e) => handleFilterCreated(e)}>
+          <select
+            className={styles.item}
+            onChange={(e) => handleFilterCreated(e)}
+          >
             <option value="All">All</option>
             <option value="created">Created</option>
             <option value="api">Existing</option>
+          </select>
+          <select
+            className={styles.item}
+            onChange={(event) => handleFilterGenre(event)}
+          >
+            <option value="All Videogames">All Genres</option>
+            {allGenres?.map((e) => (
+              <option value={e.name}>{e.name}</option>
+            ))}
           </select>
         </div>
       </div>

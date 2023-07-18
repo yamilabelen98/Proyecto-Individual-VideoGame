@@ -1,5 +1,4 @@
 import axios from "axios";
-import NotFound from "../components/NotFound";
 
 export function getAllVideoGames() {
   return async function (dispatch) {

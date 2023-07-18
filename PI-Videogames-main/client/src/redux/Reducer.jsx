@@ -41,6 +41,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
+
     case "FILTER_GENRE":
       const allGenres = state.allVideogames;
       const genresFiltered =

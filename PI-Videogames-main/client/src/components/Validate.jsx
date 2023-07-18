@@ -24,17 +24,17 @@ export default function validate(inputCreate, allVideogames) {
   } else if (
     inputCreate.rating === "" ||
     inputCreate.rating < 1 ||
-    inputCreate.rating > 6
+    inputCreate.rating > 5
   ) {
     errors.rating = "Enter a rating between 1 and 5";
   } else if (inputCreate.genres.length === 0) {
     errors.genres = "Select one or more genres";
   } else if (inputCreate.genres.length > 10) {
-    errors.genres = "Only up to 2 genders";
+    errors.genres = "Only up to 10 genres";
   } else if (inputCreate.platforms.length === 0) {
     errors.platforms = "Select one or more platforms";
   } else if (inputCreate.platforms.length > 10) {
-    errors.platforms = "Only up to 2 platforms";
+    errors.platforms = "Only up to 10 platforms";
   }
   return errors;
 }
